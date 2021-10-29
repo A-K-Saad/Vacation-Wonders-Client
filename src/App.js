@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Home/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
 import AuthProvider from "./Contexts/AuthProvider";
 
