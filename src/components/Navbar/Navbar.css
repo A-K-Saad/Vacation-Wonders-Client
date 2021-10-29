@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+.navbar {
+  background: #103658;
+}
+.footer-bg {
+  background: #103658;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #e7e9ff;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #bcc1ff;
+}
+.active-link {
+  color: #70c6ff !important;
+}
+.navbar-brand {
+  font-family: "Pacifico", cursive;
+}
+.main-title {
+  color: #e7e9ff;
+  font-size: 2.2rem;
+}
+.navbar-brand img {
+  width: 4.5rem;
+  border-radius: 50%;
+}
+.avatar-img {
+  width: 3rem;
+  border-radius: 50%;
+}
+.navbar-toggler {
+  border: 1px solid #fff;
+  background: #fff;
+  padding: 0px 4px;
+}
+@media only screen and (max-width: 688px) {
+  .navbar-brand img {
+    width: 3.5rem;
+  }
+  .main-title {
+    font-size: 2rem;
+  }
+  .nav-link {
+    font-size: 16px;
+  }
+  .cart-div {
+    position: absolute;
+    top: 0.7rem;
+    right: 4rem;
+  }
+}

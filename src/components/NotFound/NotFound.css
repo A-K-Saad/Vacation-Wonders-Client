@@ -1,0 +1,8 @@
+.unfound-div {
+  min-height: 100vh;
+  background: #f3f3f3;
+}
+.unfound-div img {
+  max-width: 24rem;
+  width: 100%;
+}
