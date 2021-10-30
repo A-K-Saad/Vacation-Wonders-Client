@@ -9,7 +9,7 @@ const Order = () => {
   const { packageId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/packages/${packageId}`)
+    fetch(`https://fathomless-meadow-55221.herokuapp.com/packages/${packageId}`)
       .then((res) => res.json())
       .then((data) => {
         setOrderPackage(data);

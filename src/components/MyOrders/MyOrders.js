@@ -10,12 +10,14 @@ const MyOrders = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/my-orders?search=${user?.email}`)
+    fetch(
+      `https://fathomless-meadow-55221.herokuapp.com/my-orders?search=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyOrders(data))
       .catch((error) => console.log(error));
     //Fetching the Details
-    fetch("http://localhost:5000/packages/")
+    fetch("https://fathomless-meadow-55221.herokuapp.com/packages/")
       .then((res) => res.json())
       .then((data) => setPackages(data));
     setLoading(false);
@@ -45,7 +47,7 @@ const MyOrders = () => {
           //Deleting
           const filteredOrders = myOrders.filter((order) => order?._id !== _id);
           setMyOrders(filteredOrders);
-          fetch("http://localhost:5000/orders", {
+          fetch("https://fathomless-meadow-55221.herokuapp.com/orders", {
             method: "DELETE",
             headers: {
               "content-type": "application/json",
@@ -111,7 +113,7 @@ const MyOrders = () => {
                                 parseInt(order?.child)) -
                               (35 / 100) * parseInt(order?.child)}
                         </h5>
-                        <h6 className="m-0 d-flex align-items-basepe-3 pe-3">
+                        <h6 className="m-0 d-flex align-items-baseline pe-3">
                           <i className="fas fa-map-marker-alt h5 m-0 pe-1"></i>
                           {currentPackage?.location}
                         </h6>

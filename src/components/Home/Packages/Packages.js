@@ -7,7 +7,7 @@ const Packages = ({ limit }) => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/packages")
+    fetch("https://fathomless-meadow-55221.herokuapp.com/packages")
       .then((res) => res.json())
       .then((data) => {
         setPackages(data);

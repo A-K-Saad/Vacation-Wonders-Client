@@ -18,7 +18,7 @@ const AddTour = () => {
     e.preventDefault();
     sweetAlert("success", "Success!", "Added Tour Successfully!");
     // history.push("/");
-    fetch("http://localhost:5000/packages", {
+    fetch("https://fathomless-meadow-55221.herokuapp.com/packages", {
       method: "POST",
       headers: {
         "content-type": "application/json",
