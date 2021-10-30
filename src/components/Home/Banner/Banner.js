@@ -16,15 +16,15 @@ const Banner = () => {
         </div> */}
         <div
           id="carouselExampleIndicators"
-          class="carousel slide"
+          className="carousel slide pe-none"
           data-bs-ride="carousel"
         >
-          <div class="carousel-indicators">
+          <div className="carousel-indicators pe-auto">
             <button
               type="button"
               data-bs-target="#carouselExampleIndicators"
               data-bs-slide-to="0"
-              class="active"
+              className="active"
               aria-current="true"
               aria-label="Slide 1"
             ></button>
@@ -41,8 +41,8 @@ const Banner = () => {
               aria-label="Slide 3"
             ></button>
           </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
+          <div className="carousel-inner">
+            <div className="carousel-item active">
               <div className="video-outer position-relative">
                 <video
                   src="https://cdn.videvo.net/videvo_files/video/free/2017-08/large_watermarked/170724_15_Setangibeach_preview.mp4"
@@ -67,7 +67,7 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <div className="video-outer position-relative">
                 <video
                   src="https://cdn.videvo.net/videvo_files/video/free/2020-09/large_watermarked/200831_01_drone%20scotland_4K_020_preview.mp4"
@@ -94,7 +94,7 @@ const Banner = () => {
                 </div>
               </div>
             </div>
-            <div class="carousel-item">
+            <div className="carousel-item">
               <div className="video-outer position-relative">
                 <video
                   src="https://cdn.videvo.net/videvo_files/video/free/2018-07/large_watermarked/180607_A_101_preview.mp4"

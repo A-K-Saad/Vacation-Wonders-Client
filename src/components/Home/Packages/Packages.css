@@ -1,0 +1,7 @@
+.img-outer {
+  max-height: 12rem;
+  overflow: hidden;
+}
+.img-outer img {
+  min-height: 12rem;
+}

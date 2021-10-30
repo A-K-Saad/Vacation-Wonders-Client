@@ -1,0 +1,37 @@
+.add-form {
+  max-width: 40rem;
+  margin: auto;
+  /* box-shadow: 0px 0px 16px #ddd; */
+  background: #fff;
+}
+input,
+textarea {
+  outline: none !important;
+  transition: all 0.5s ease;
+  background: #fbfbfb;
+  resize: none;
+}
+input:focus,
+textarea:focus {
+  box-shadow: 0px 0px 0px 2px #85c4ffd0;
+}
+.half-input {
+  width: 48%;
+}
+.half-input input {
+  width: 100%;
+}
+button[type="submit"] {
+  width: 9rem;
+  padding: 8px;
+  margin: auto;
+}
+label {
+  text-align: left;
+  width: 100%;
+}
+@media only screen and (max-width: 688px) {
+  .half-input {
+    width: 100%;
+  }
+}

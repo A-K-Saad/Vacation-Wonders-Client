@@ -1,3 +1,18 @@
+body {
+  background: #faf7f7;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-700 {
+  font-weight: 700;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -17,6 +32,20 @@
   background: #1b3877;
   color: #fff !important;
 }
+.btn-delete {
+  background: #f91944;
+  color: #fff;
+  width: 3rem;
+  height: 2.5rem;
+  transition: all 0.1s ease-in;
+}
+.btn-delete:hover {
+  background: #f11b46;
+  color: #fff;
+}
 .lh-30px {
   line-height: 30px;
+}
+button {
+  pointer-events: auto !important;
 }

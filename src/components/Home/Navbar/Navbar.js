@@ -61,36 +61,38 @@ const Navbar = () => {
                 >
                   Blogs
                 </NavLink>
-                <NavLink
-                  className="nav-link px-2 px-md-3"
-                  exact
-                  to="/about"
-                  activeClassName="active-link"
-                >
-                  About
-                </NavLink>
-                <NavLink
-                  className="nav-link px-2 px-md-3"
-                  exact
-                  to="/contact"
-                  activeClassName="active-link"
-                >
-                  Contact
-                </NavLink>
                 {user?.email ? (
-                  <div className="d-flex align-items-center">
-                    <button className="btn btn-danger ms-3" onClick={logOut}>
-                      <i className="fas fa-sign-out-alt"></i> Sign Out
-                    </button>
-                    <img
-                      src={user?.photoURL}
-                      alt="Avatar"
-                      onError={(e) =>
-                        (e.target.src = "https://i.ibb.co/qgbdqZ3/male.png")
-                      }
-                      className="avatar-img ms-3"
-                    />
-                  </div>
+                  <>
+                    <NavLink
+                      className="nav-link px-2 px-md-3"
+                      exact
+                      to="/add-tour"
+                      activeClassName="active-link"
+                    >
+                      Add Tour
+                    </NavLink>
+                    <NavLink
+                      className="nav-link px-2 px-md-3"
+                      exact
+                      to="/my-orders"
+                      activeClassName="active-link"
+                    >
+                      My Orders
+                    </NavLink>
+                    <div className="d-flex align-items-center">
+                      <button className="btn btn-danger ms-3" onClick={logOut}>
+                        <i className="fas fa-sign-out-alt"></i> Sign Out
+                      </button>
+                      <img
+                        src={user?.photoURL}
+                        alt="Avatar"
+                        onError={(e) =>
+                          (e.target.src = "https://i.ibb.co/qgbdqZ3/male.png")
+                        }
+                        className="avatar-img ms-3"
+                      />
+                    </div>
+                  </>
                 ) : (
                   <NavLink
                     className="nav-link px-2 px-md-3 btn btn-lightblue"
