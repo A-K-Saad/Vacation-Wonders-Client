@@ -8,6 +8,7 @@ const AddTour = () => {
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
   const [price, setPrice] = useState(0);
+  const [location, setLocation] = useState("");
   const [days, setDays] = useState(1);
   const [nights, setNights] = useState(1);
   const [time, setTime] = useState("1 Day / 1 Night");
@@ -25,12 +26,13 @@ const AddTour = () => {
       body: JSON.stringify({
         name: name,
         date: date,
+        location: location,
         image: image,
         price: price,
         time: time,
         description: description,
       }),
-    }).then((result) => console.log(result));
+    }).then(() => e.target.reset());
   };
   useEffect(() => {
     setTime(`${days} Day / ${nights} Night`);
@@ -69,7 +71,17 @@ const AddTour = () => {
             </div>
           </div>
           <div className="d-flex justify-content-between flex-column flex-md-row">
-            <div className="half-input mx-auto">
+            <div className="half-input mx-auto pe-1">
+              <label>Location:</label>
+              <input
+                type="text"
+                placeholder="Enter Tour Location"
+                required
+                className="py-2 px-3 rounded border my-2 w-100 form-control"
+                onChange={(e) => setLocation(e.target.value)}
+              />
+            </div>
+            <div className="half-input mx-auto pe-1">
               <label>Image:</label>
               <input
                 type="url"

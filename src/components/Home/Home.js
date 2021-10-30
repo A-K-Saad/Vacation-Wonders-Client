@@ -11,7 +11,7 @@ const Home = () => {
           Select The Best <br /> Package for you
         </h1>
         <br />
-        <Packages></Packages>
+        <Packages limit={6}></Packages>
       </div>
     </>
   );

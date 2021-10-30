@@ -10,6 +10,7 @@ import AddTour from "./components/AddTour/AddTour";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Order from "./components/Order/Order";
 import MyOrders from "./components/MyOrders/MyOrders";
+import Tours from "./components/Tours/Tours";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
               <PrivateRoute exact path="/my-orders">
                 <MyOrders></MyOrders>
               </PrivateRoute>
+              <Route exact path="/tours">
+                <Tours></Tours>
+              </Route>
               <Route path="*">
                 <NotFound></NotFound>
               </Route>

@@ -1,14 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory, useLocation } from "react-router";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import Alert from "../../hooks/Alert";
 import "./Login.css";
 
 const Login = () => {
-  const { loginWithGoogle, setIsLoading, setUser } = useContext(AuthContext);
+  const { loginWithGoogle, setIsLoading, setUser, user } =
+    useContext(AuthContext);
   const { sweetAlert } = Alert();
   const history = useHistory();
   const location = useLocation();
+
+  useEffect(() => {
+    //Redirecting the user if logged in already
+    if (user?.email) {
+      history.push(location?.state?.from || "");
+    }
+  }, []);
 
   const handleLogin = () => {
     loginWithGoogle()
@@ -24,7 +32,7 @@ const Login = () => {
     <>
       <div className="container py-5">
         <div className="d-flex justify-content-center align-items-center">
-          <div className="shadow p-4 text-center form">
+          <div className="shadow p-3 p-md-5 text-center form">
             <h3>Login In To Continue</h3>
             <button
               className="btn btn-outline-primary rounded-pill mt-4"

@@ -95,7 +95,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <NavLink
-                    className="nav-link px-2 px-md-3 btn btn-lightblue"
+                    className="nav-link px-2 px-md-3 btn btn-lightblue ms-3"
                     exact
                     to="/login"
                   >

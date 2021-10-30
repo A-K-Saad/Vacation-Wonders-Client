@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import OrderForm from "./OrderForm";
+import { useParams, useHistory } from "react-router";
+import OrderForm from "./OrderForm/OrderForm";
+import "./Order.css";
 
 const Order = () => {
   const [orderPackage, setOrderPackage] = useState({});
+  const history = useHistory();
   const { packageId } = useParams();
+
   useEffect(() => {
     fetch(`http://localhost:5000/packages/${packageId}`)
       .then((res) => res.json())
@@ -13,16 +15,27 @@ const Order = () => {
         setOrderPackage(data);
       });
   }, [packageId]);
+
   return (
     <>
       <div className="container py-5">
         <div className="row">
           <div className="col-12 col-md-7">
-            <img
-              src={orderPackage?.image}
-              alt="Tour_Image"
-              className="w-100 rounded"
-            />
+            <button
+              className="btn mb-3"
+              onClick={() => {
+                history.goBack() || history.push("/");
+              }}
+            >
+              <i className="h5 far fa-arrow-alt-circle-left m-0 pe-2"></i>Back
+            </button>
+            <div className="image-outer">
+              <img
+                src={orderPackage?.image}
+                alt="Tour_Image"
+                className="w-100 rounded"
+              />
+            </div>
             <h3 className="m-0 pt-3 text-center">{orderPackage?.name}</h3>
             <div className="mb-3 pt-2 d-flex justify-content-between align-items-center">
               <h5>
@@ -35,11 +48,8 @@ const Order = () => {
               </h6>
             </div>
             <p>{orderPackage?.description}</p>
-            <Link to="/">
-              <button className="btn btn-dark mt-5">Back to Home</button>
-            </Link>
           </div>
-          <OrderForm></OrderForm>
+          <OrderForm orderPackage={orderPackage}></OrderForm>
         </div>
       </div>
     </>

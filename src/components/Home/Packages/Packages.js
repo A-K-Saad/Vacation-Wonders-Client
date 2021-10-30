@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Packages.css";
 
-const Packages = () => {
+const Packages = ({ limit }) => {
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -16,14 +16,20 @@ const Packages = () => {
   }, []);
   return (
     <>
-      <div className="row row-cols-3 g-2 justify-content-center">
+      <div className="row row-cols-3 g-3 justify-content-center">
         {loading && (
           <img
             src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
             alt="Loader"
           />
         )}
-        {packages.map((singlePackage) => {
+        {!packages.length && !loading && (
+          <div className="d-flex flex-column">
+            <i className="fas fa-route" style={{ fontSize: "150px" }}></i>
+            <h4 className="m-0 py-3">No Tours Added Yet</h4>
+          </div>
+        )}
+        {packages.slice(0, limit).map((singlePackage) => {
           return (
             <div className="col" key={singlePackage?._id}>
               <div className="card border-0 p-3 shadow-sm">
