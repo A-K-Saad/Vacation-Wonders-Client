@@ -22,7 +22,13 @@
 }
 .main-title {
   color: #e7e9ff;
-  font-size: 2.2rem;
+  /* font-size: 2.2rem; */
+}
+.title-border-bottom {
+  width: 7rem;
+  height: 2px;
+  background: #e7e9ff;
+  border-radius: 14rem;
 }
 .navbar-brand img {
   width: 4.5rem;

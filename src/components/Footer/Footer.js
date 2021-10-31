@@ -26,17 +26,14 @@ const Footer = () => {
               <NavLink className="nav-link" to="/" exact>
                 Home
               </NavLink>
-              <NavLink className="nav-link" to="/dentists">
-                Dentists
+              <NavLink className="nav-link" to="/tours">
+                Tours
               </NavLink>
-              <NavLink className="nav-link" to="/blogs">
-                Blogs
+              <NavLink className="nav-link" to="/my-orders">
+                My Orders
               </NavLink>
-              <NavLink className="nav-link" to="/about">
-                About
-              </NavLink>
-              <NavLink className="nav-link" to="/contact">
-                Contact
+              <NavLink className="nav-link" to="/all-orders">
+                All Orders
               </NavLink>
             </nav>
           </div>
@@ -53,7 +50,7 @@ const Footer = () => {
             </a>
           </div>
           <h6 className="pt-4 text-light">
-            &copy; A-K-Saad || 2021 || Smile Street || All rights reserved
+            &copy; A-K-Saad || 2021 || Vacation Wonders || All rights reserved
           </h6>
         </footer>
       </div>

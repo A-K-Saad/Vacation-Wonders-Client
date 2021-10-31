@@ -1,6 +1,7 @@
 .video-outer {
-  height: 30rem;
+  max-height: 30rem;
   overflow: hidden;
+  background: #000;
 }
 .video-outer::before {
   content: "";

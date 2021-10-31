@@ -2,3 +2,21 @@
   max-width: 26rem;
   width: 100%;
 }
+.login-btn {
+  font-size: 19px;
+}
+.login-btn img {
+  width: 40px;
+}
+.title {
+  color: #16161a;
+  /* font-size: 2.2rem; */
+}
+@media only screen and (max-width: 688px) {
+  .login-btn {
+    font-size: 15px;
+  }
+  .login-btn img {
+    width: 30px;
+  }
+}

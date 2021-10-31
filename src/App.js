@@ -12,6 +12,8 @@ import Order from "./components/Order/Order";
 import MyOrders from "./components/MyOrders/MyOrders";
 import Tours from "./components/Tours/Tours";
 import AllOrders from "./components/AllOrders/AllOrders";
+import Blog from "./components/Blogs/Blog/Blog";
+import Blogs from "./components/Blogs/Blogs";
 
 function App() {
   return (
@@ -41,6 +43,15 @@ function App() {
               </PrivateRoute>
               <Route exact path="/tours">
                 <Tours></Tours>
+              </Route>
+              <Route exact path="/blogs">
+                <div className="container py-5 text-center">
+                  <h2 className="fw-bold pb-3">Read About Places</h2>
+                  <Blogs></Blogs>
+                </div>
+              </Route>
+              <Route exact path="/blog/:blogId">
+                <Blog></Blog>
               </Route>
               <Route path="*">
                 <NotFound></NotFound>

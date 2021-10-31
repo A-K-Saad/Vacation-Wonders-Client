@@ -16,7 +16,7 @@ const Packages = ({ limit }) => {
   }, []);
   return (
     <>
-      <div className="row row-cols-3 g-3 justify-content-center">
+      <div className="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
         {loading && (
           <img
             src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
