@@ -43,6 +43,12 @@
   background: #fff;
   padding: 0px 4px;
 }
+.dropdown {
+  background: #144b7a;
+}
+.dropdown .nav-link:hover {
+  background: #1b5a91;
+}
 @media only screen and (max-width: 688px) {
   .navbar-brand img {
     width: 3.5rem;

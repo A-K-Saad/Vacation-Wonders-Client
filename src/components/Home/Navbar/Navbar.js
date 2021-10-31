@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 import "./Navbar.css";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isDropdown, setIsDropdown] = useState(false);
 
   return (
     <>
@@ -67,37 +68,63 @@ const Navbar = () => {
                     >
                       Add Tour
                     </NavLink>
-                    <NavLink
-                      className="nav-link px-2 px-md-3"
-                      exact
-                      to="/my-orders"
-                      activeClassName="active-link"
-                    >
-                      My Orders
-                    </NavLink>
-                    <NavLink
-                      className="nav-link px-2 px-md-3"
-                      exact
-                      to="/all-orders"
-                      activeClassName="active-link"
-                    >
-                      All Orders
-                    </NavLink>
                     <div className="d-flex align-items-center flex-column flex-md-row">
-                      <button
-                        className="btn btn-danger ms-0 ms-md-3"
-                        onClick={logOut}
-                      >
-                        <i className="fas fa-sign-out-alt"></i> Sign Out
-                      </button>
-                      <img
-                        src={user?.photoURL}
-                        alt="Avatar"
-                        onError={(e) =>
-                          (e.target.src = "https://i.ibb.co/qgbdqZ3/male.png")
-                        }
-                        className="avatar-img ms-3 mt-3 mt-md-0"
-                      />
+                      <div className="position-relative">
+                        <button
+                          className="btn p-0 shadow-none"
+                          onClick={() => {
+                            setIsDropdown(!isDropdown);
+                          }}
+                          onBlur={() => {
+                            setIsDropdown(false);
+                          }}
+                        >
+                          <img
+                            src={user?.photoURL}
+                            alt="Avatar"
+                            onError={(e) =>
+                              (e.target.src =
+                                "https://i.ibb.co/qgbdqZ3/male.png")
+                            }
+                            className={`avatar-img border-2 border-light ${
+                              isDropdown && "border"
+                            }`}
+                          />
+                        </button>
+                        {isDropdown && (
+                          <div className="dropdown position-absolute top-0 end-0 mt-5 p-3 text-light rounded-3">
+                            <small className="fw-bold">
+                              {user?.displayName}
+                            </small>
+                            <br />
+                            <small>{user?.email}</small>
+                            <hr />
+                            <NavLink
+                              className="nav-link px-1 px-md-2 justify-content-start rounded"
+                              exact
+                              to="/my-orders"
+                              activeClassName="active-link"
+                            >
+                              My Orders
+                            </NavLink>
+                            <NavLink
+                              className="nav-link px-1 px-md-2 justify-content-start rounded"
+                              exact
+                              to="/all-orders"
+                              activeClassName="active-link"
+                            >
+                              All Orders
+                            </NavLink>
+                            <button
+                              className="btn nav-link justify-content-start w-100 rounded"
+                              onClick={logOut}
+                            >
+                              <i className="fas fa-sign-out-alt me-2"></i> Sign
+                              Out
+                            </button>
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </>
                 ) : (
