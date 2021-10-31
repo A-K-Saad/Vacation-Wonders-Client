@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Order from "./components/Order/Order";
 import MyOrders from "./components/MyOrders/MyOrders";
 import Tours from "./components/Tours/Tours";
+import AllOrders from "./components/AllOrders/AllOrders";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
               </PrivateRoute>
               <PrivateRoute exact path="/my-orders">
                 <MyOrders></MyOrders>
+              </PrivateRoute>
+              <PrivateRoute exact path="/all-orders">
+                <AllOrders></AllOrders>
               </PrivateRoute>
               <Route exact path="/tours">
                 <Tours></Tours>

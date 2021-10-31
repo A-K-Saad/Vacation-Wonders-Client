@@ -31,6 +31,7 @@ const OrderForm = ({ orderPackage }) => {
         price: totalPrice,
         address: address,
         packageId: packageId,
+        status: "Pending",
       }),
     }).then(() => {
       sweetAlert("success", "Success!", "Placed Your Order Successfully!");

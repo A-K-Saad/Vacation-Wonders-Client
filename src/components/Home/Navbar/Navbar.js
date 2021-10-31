@@ -53,14 +53,6 @@ const Navbar = () => {
                 >
                   Tours
                 </NavLink>
-                <NavLink
-                  className="nav-link px-2 px-md-3"
-                  exact
-                  to="/blogs"
-                  activeClassName="active-link"
-                >
-                  Blogs
-                </NavLink>
                 {user?.email ? (
                   <>
                     <NavLink
@@ -78,6 +70,14 @@ const Navbar = () => {
                       activeClassName="active-link"
                     >
                       My Orders
+                    </NavLink>
+                    <NavLink
+                      className="nav-link px-2 px-md-3"
+                      exact
+                      to="/all-orders"
+                      activeClassName="active-link"
+                    >
+                      All Orders
                     </NavLink>
                     <div className="d-flex align-items-center">
                       <button className="btn btn-danger ms-3" onClick={logOut}>
@@ -99,7 +99,7 @@ const Navbar = () => {
                     exact
                     to="/login"
                   >
-                    <i className="fas fa-sign-in-alt"></i> Login
+                    <i className="fas fa-sign-in-alt pe-2"></i> Login
                   </NavLink>
                 )}
               </div>

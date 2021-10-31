@@ -38,9 +38,22 @@ body {
   width: 3rem;
   height: 2.5rem;
   transition: all 0.1s ease-in;
+  font-size: 20px;
 }
 .btn-delete:hover {
   background: #f11b46;
+  color: #fff;
+}
+.btn-approve {
+  background: #00ff89;
+  color: #fff;
+  width: 3rem;
+  height: 2.5rem;
+  transition: all 0.1s ease-in;
+  font-size: 20px;
+}
+.btn-approve:hover {
+  background: #00fd3f;
   color: #fff;
 }
 .lh-30px {
@@ -48,4 +61,12 @@ body {
 }
 button {
   pointer-events: auto !important;
+}
+@media only screen and (max-width: 688px) {
+  .btn-approve,
+  .btn-delete {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 15px;
+  }
 }

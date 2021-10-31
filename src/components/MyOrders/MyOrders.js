@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import Alert from "../../hooks/Alert";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [myOrders, setMyOrders] = useState([]);
   const [packages, setPackages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { confirmAlert } = Alert();
 
   useEffect(() => {
     setLoading(true);
@@ -21,54 +22,11 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => setPackages(data));
     setLoading(false);
+    return;
   }, [user?.email]);
 
   const deleteOrder = (_id) => {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger me-3",
-      },
-      buttonsStyling: false,
-    });
-
-    swalWithBootstrapButtons
-      .fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel!",
-        reverseButtons: true,
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          //Deleting
-          const filteredOrders = myOrders.filter((order) => order?._id !== _id);
-          setMyOrders(filteredOrders);
-          fetch("https://fathomless-meadow-55221.herokuapp.com/orders", {
-            method: "DELETE",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify({ _id: _id }),
-          }).then((result) => console.log(result));
-          Swal.fire({
-            icon: "success",
-            title: "Cancelled!",
-            text: "Cancelled The Order Successfully!",
-            timer: 2000,
-          });
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          Swal.fire({
-            icon: "error",
-            title: "Calcelled!",
-            text: "Couldn't Cancel The Order!",
-            timer: 2000,
-          });
-        }
-      });
+    confirmAlert(myOrders, _id, setMyOrders);
   };
   return (
     <>
@@ -76,11 +34,8 @@ const MyOrders = () => {
         {!myOrders.length && !loading ? (
           <>
             <div className="text-center">
-              <img
-                src="https://www.hindarthouse.com/uploads/emptycart.png"
-                alt="NO_CART"
-              />
-              <h5>Order tours to check them out!</h5>
+              <img src="https://i.ibb.co/vwYsWbn/image.png" alt="NO_CART" />
+              <h5 className="mt-4">Order tours to check them out!</h5>
             </div>
           </>
         ) : (
@@ -89,7 +44,7 @@ const MyOrders = () => {
         <div className="row">
           {myOrders
             .slice()
-            .sort((a, b) => myOrders.indexOf(b) - myOrders.indexOf(a))
+            .reverse()
             .map((order) => {
               const currentPackage = packages?.find(
                 (el) => el?._id === order?.packageId
