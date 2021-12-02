@@ -17,7 +17,7 @@ const Login = () => {
     if (user?.email) {
       history.push(location?.state?.from || "");
     }
-  }, []);
+  }, [user?.email, history, location?.state?.from]);
 
   const handleLogin = () => {
     loginWithGoogle()

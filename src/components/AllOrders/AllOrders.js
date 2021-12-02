@@ -4,20 +4,31 @@ import Alert from "../../hooks/Alert";
 const AllOrders = () => {
   const [packages, setPackages] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [updateId, setUpdateId] = useState("");
   const { confirmAlert } = Alert();
+
   useEffect(() => {
-    setLoading(true);
+    setIsLoading(true);
     fetch("https://fathomless-meadow-55221.herokuapp.com/orders")
       .then((res) => res.json())
-      .then((data) => setAllOrders(data));
+      .then((data) => {
+        setIsLoading(false);
+        setAllOrders(data);
+      });
+
     //Fetching the Details
     fetch("https://fathomless-meadow-55221.herokuapp.com/packages/")
       .then((res) => res.json())
       .then((data) => setPackages(data))
       .catch((error) => console.log(error));
-    setLoading(false);
   }, []);
+  useEffect(() => {
+    fetch("https://fathomless-meadow-55221.herokuapp.com/orders")
+      .then((res) => res.json())
+      .then((data) => setAllOrders(data));
+    setUpdateId("");
+  }, [updateId]);
 
   const approveOrder = (orderId) => {
     fetch("https://fathomless-meadow-55221.herokuapp.com/orders", {
@@ -26,35 +37,47 @@ const AllOrders = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify({ _id: orderId, status: "Approved" }),
-    }).catch((error) => console.log(error));
+    })
+      .then(() => {
+        setUpdateId(orderId);
+      })
+      .catch((error) => console.log(error));
   };
   //Delete Order
   const deleteOrder = (_id) => {
     confirmAlert(allOrders, _id, setAllOrders);
   };
 
+  if (isLoading) {
+    return (
+      <div className="text-center box-wrapper">
+        <img
+          src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
+          alt="Loader"
+          className="w-100"
+        />
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="container py-5">
-        {loading && (
-          <div className="text-center">
-            <img
-              src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
-              alt="Loader"
-            />
-          </div>
-        )}
-        {!loading && !allOrders.length ? (
+        {!isLoading && !allOrders.length ? (
           <>
-            <div className="text-center">
-              <img src="https://i.ibb.co/vwYsWbn/image.png" alt="NO_CART" />
+            <div className="text-center box-wrapper">
+              <img
+                src="https://i.ibb.co/vwYsWbn/image.png"
+                alt="NO_CART"
+                className="w-100"
+              />
               <h5 className="mt-4">Order tours to check them out!</h5>
             </div>
           </>
         ) : (
           <h2 className="fw-600 text-center mb-3">Check Out All Orders</h2>
         )}
-        <div className="row">
+        <div className="row px-2">
           {allOrders
             .slice()
             .reverse()
@@ -108,7 +131,9 @@ const AllOrders = () => {
                       <div className="d-flex">
                         <button
                           className={`btn btn-approve d-flex align-items-center justify-content-center me-2`}
-                          onClick={() => approveOrder(order?._id)}
+                          onClick={() => {
+                            approveOrder(order?._id);
+                          }}
                         >
                           <i className="far fa-calendar-check m-0"></i>
                         </button>

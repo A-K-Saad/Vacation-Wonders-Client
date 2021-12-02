@@ -16,11 +16,12 @@ const Packages = ({ limit }) => {
   }, []);
   return (
     <>
-      <div className="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
+      <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 justify-content-center">
         {loading && (
           <img
-            src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
-            alt="Loader"
+            src="https://i.ibb.co/QjZhgZc/load.gif"
+            alt="Loading"
+            style={{ width: "6rem" }}
           />
         )}
         {!packages.length && !loading && (

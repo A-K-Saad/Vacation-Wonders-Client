@@ -7,13 +7,14 @@ const PrivateRoute = ({ children, ...rest }) => {
 
   if (isLoading) {
     return (
-      <div className="text-center">
+      <div className="text-center box-wrapper">
         {/* <div className="spinner-border text-primary mx-auto" role="status">
           <span className="visually-hidden">Loading...</span>
         </div> */}
         <img
           src="https://i.ibb.co/WtMm1Wz/loading-paper-airplane.gif"
           alt="Loader"
+          className="w-100"
         />
       </div>
     );

@@ -6,6 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isDropdown, setIsDropdown] = useState(false);
+  const [mousedOver, setMousedOver] = useState(false);
 
   return (
     <>
@@ -75,9 +76,7 @@ const Navbar = () => {
                           onClick={() => {
                             setIsDropdown(!isDropdown);
                           }}
-                          onBlur={() => {
-                            setIsDropdown(false);
-                          }}
+                          onBlur={() => !mousedOver && setIsDropdown(false)}
                         >
                           <img
                             src={user?.photoURL}
@@ -92,7 +91,12 @@ const Navbar = () => {
                           />
                         </button>
                         {isDropdown && (
-                          <div className="dropdown position-absolute top-0 end-0 mt-5 p-3 text-light rounded-3">
+                          <div
+                            className="dropdown position-absolute top-0 end-0 mt-5 p-3 text-light rounded-3"
+                            onMouseOver={() => setMousedOver(true)}
+                            onMouseLeave={() => setMousedOver(false)}
+                            onBlur={() => setIsDropdown(false)}
+                          >
                             <small className="fw-bold">
                               {user?.displayName}
                             </small>

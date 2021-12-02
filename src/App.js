@@ -45,7 +45,7 @@ function App() {
                 <Tours></Tours>
               </Route>
               <Route exact path="/blogs">
-                <div className="container py-5 text-center">
+                <div className="container py-3 py-md-5 text-center">
                   <h2 className="fw-bold pb-3">Read About Places</h2>
                   <Blogs></Blogs>
                 </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Blogs from "../Blogs/Blogs";
 import Banner from "./Banner/Banner";
 import Packages from "./Packages/Packages";
@@ -20,6 +21,10 @@ const Home = () => {
           <div className="pt-5">
             <h1 className="fw-bold pb-3">Read About Places</h1>
             <Blogs></Blogs>
+
+            <Link to="/blogs">
+              <button className="btn btn-dark mt-5 px-5">Read More</button>
+            </Link>
           </div>
         </div>
       </div>

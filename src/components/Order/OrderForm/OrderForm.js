@@ -98,8 +98,13 @@ const OrderForm = ({ orderPackage }) => {
                 required
                 className="form-control"
                 min="0"
-                onChange={(e) => setAdult(e.target.value)}
-                max="5"
+                onChange={(e) => {
+                  if (e.target.value > 10) {
+                    e.target.value = 10;
+                  }
+                  setAdult(e.target.value);
+                }}
+                max="10"
               />
             </div>
             <div className="ps-1 w-50">
@@ -113,8 +118,13 @@ const OrderForm = ({ orderPackage }) => {
                 required
                 className="form-control"
                 min="0"
-                onChange={(e) => setChild(e.target.value)}
-                max="5"
+                onChange={(e) => {
+                  if (e.target.value > 10) {
+                    e.target.value = 10;
+                  }
+                  setChild(e.target.value);
+                }}
+                max="10"
               />
             </div>
           </div>

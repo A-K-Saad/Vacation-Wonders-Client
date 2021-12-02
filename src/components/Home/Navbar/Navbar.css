@@ -54,7 +54,10 @@
     width: 3.5rem;
   }
   .main-title {
-    font-size: 2rem;
+    font-size: 1.4rem;
+  }
+  .title-border-bottom {
+    width: 6rem;
   }
   .nav-link {
     font-size: 16px;

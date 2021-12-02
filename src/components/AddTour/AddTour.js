@@ -41,9 +41,9 @@ const AddTour = () => {
   return (
     <>
       <div className="container py-3 text-center">
-        <h2>Add A New Tour</h2>
+        <h2 className="fw-bold">Add A New Tour</h2>
         <form
-          className="add-form d-flex flex-column justify-content-center p-3 my-3 mx-auto w-100 text-start mt-4 rounded shadow-sm"
+          className="add-form d-flex flex-column justify-content-center p-3 my-3 mx-auto w-100 text-start mt-3 rounded shadow-sm"
           onSubmit={(e) => {
             handleSubmit(e);
           }}
@@ -53,7 +53,7 @@ const AddTour = () => {
               <label>Name:</label>
               <input
                 type="text"
-                placeholder="Enter Your Name"
+                placeholder="Enter Event Name"
                 required
                 className="py-2 px-3 rounded border my-2 w-100 form-control"
                 onChange={(e) => setName(e.target.value)}

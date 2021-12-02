@@ -62,11 +62,15 @@ body {
 button {
   pointer-events: auto !important;
 }
+.max-w-100 {
+  max-width: 100%;
+}
 @media only screen and (max-width: 688px) {
   .btn-approve,
   .btn-delete {
     width: 1.5rem;
     height: 1.5rem;
     font-size: 15px;
+    padding: 15px;
   }
 }
